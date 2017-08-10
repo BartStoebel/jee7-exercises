@@ -18,7 +18,7 @@ public class AbstractPersistenceTest {
     @BeforeClass
     public static void initializeEntityManagerFactory() {
     	//Create EntityManagerFactory
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CandyShop");
+        emf = Persistence.createEntityManagerFactory("CandyShop");
     }
 
     @Before
@@ -31,10 +31,13 @@ public class AbstractPersistenceTest {
 
     @After
     public void rollbackTransactionAndCloseEntityManager() {
-        // TODO: rollback the transaction
-    	em.getTransaction().rollback();
-        // TODO: close the entity manager
-    	em.close();
+    	// TODO: rollback the transaction
+    	if (em != null) {
+    		em.getTransaction().rollback();
+            // TODO: close the entity manager
+        	em.close();
+        }
+    	
     }
 
     @AfterClass
