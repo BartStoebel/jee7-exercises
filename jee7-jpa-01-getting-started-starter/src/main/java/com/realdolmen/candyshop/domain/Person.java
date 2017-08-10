@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 // TODO: Make person a JPA entity
-
+@Entity
 public class Person {
 	@Id @GeneratedValue
 	private Long id;
