@@ -1,10 +1,12 @@
-package com.realdolmen.candyshop.util;
+package com.realdolmen.candyshop.web;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import com.realdolmen.candyshop.domain.Person;
 import com.realdolmen.candyshop.services.PersonService;
 
+@RequestScoped
 public class PersonController {
 	@Inject
 	private PersonService personService;
@@ -19,9 +21,8 @@ public class PersonController {
 		
 	}
 
-	public Object getPersonService() {
-		// TODO Auto-generated method stub
-		return null;
+	public PersonService getPersonService() {
+		return personService;
 	}
 	
 	

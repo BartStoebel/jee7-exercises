@@ -1,9 +1,11 @@
 package com.realdolmen.candyshop.services;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import com.realdolmen.candyshop.repositories.CandyRepository;
 
+@ApplicationScoped
 public class CandyService {
 
 	@Inject
@@ -18,14 +20,13 @@ public class CandyService {
 		
 	}
 
-	public Object getCandyRepository() {
-		// TODO Auto-generated method stub
-		return null;
+	public CandyRepository getCandyRepository() {
+		return this.candyRepository;
 	}
 
-	public Object getPersonService() {
+	public PersonService getPersonService() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.personService;
 	}
 	
 	

@@ -2,7 +2,6 @@ package com.realdolmen.candyshop.web;
 
 import com.realdolmen.candyshop.AbstractWeldContainerTest;
 import com.realdolmen.candyshop.domain.Person;
-import com.realdolmen.candyshop.util.PersonController;
 
 import org.junit.Test;
 
