@@ -16,6 +16,7 @@ public class PersonPersistenceTest extends AbstractPersistenceTest {
 		person.setFirstName("Bart");
 		person.setLastName("Stoebel");
 		em.persist(person);
+		System.out.println(person.getId());
 		assertNotNull(person.getId());
 	}
 

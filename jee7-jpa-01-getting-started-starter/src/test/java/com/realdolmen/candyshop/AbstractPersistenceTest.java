@@ -20,11 +20,9 @@ public class AbstractPersistenceTest {
     	//Create EntityManagerFactory
         emf = Persistence.createEntityManagerFactory("CandyShop");
     }
-
     @Before
     public void initializeEntityManagerWithTransaction() {
         em = emf.createEntityManager();
-
         // TODO: begin a transaction
         em.getTransaction().begin();
     }
