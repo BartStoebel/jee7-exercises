@@ -37,7 +37,9 @@ public class Person {
     private List<CandyColor> candyPreferences = new ArrayList<>();
 
     // TODO: add the inverse of the many-to-one relationship between Order and Person named "orderHistory"
-
+    @OneToMany(mappedBy = "person")
+    private List<Order> orderHistory = new ArrayList<>();
+    
     @PostLoad
     public void initializeAge() {
         this.age = DateUtils.yearsFrom(birthDate);
@@ -91,4 +93,13 @@ public class Person {
     public void setCandyPreferences(List<CandyColor> candyPreferences) {
         this.candyPreferences = candyPreferences;
     }
+
+	public List<Order> getOrderHistory() {
+		// TODO Auto-generated method stub
+		return Collections.unmodifiableList(this.orderHistory);
+	}
+	
+	void addOrderToHistory(Order order){
+		orderHistory.add(order);
+	}
 }

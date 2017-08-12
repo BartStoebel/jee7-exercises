@@ -5,6 +5,24 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 // TODO: make a sublcass entity of candy (use table name 'gummy_bears'), add discriminators
+@Entity
+@Table(name = "gummy_bears")
+@DiscriminatorValue("gummy")
 public class GummyBears extends Candy {
     // TODO: add flavour property (String)
+	private String flavour;
+
+	public String getFlavour() {
+		return flavour;
+	}
+
+	public void setFlavour(String flavour) {
+		this.flavour = flavour;
+	}
+
+	public GummyBears() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 }

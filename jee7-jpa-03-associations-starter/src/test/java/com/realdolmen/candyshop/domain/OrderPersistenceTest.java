@@ -54,12 +54,25 @@ public class OrderPersistenceTest extends AbstractPersistenceTest {
     @Test
     public void orderCanAddOrderLine() throws Exception {
         // TODO: implement this test
-        Assert.fail("TODO");
+    	Order o = em.find(Order.class, 3000L);
+    	OrderLine ol = new OrderLine();
+    	ol.setQuantity(25);
+    	Candy c = em.find(Candy.class, 1000L);
+    	ol.setCandy(c);
+    	em.persist(ol);
+    	o.addOrderLine(ol);
+    	em.persist(o);
+    	em.flush();
+    	em.clear();
+    	
+    	Order po = em.find(Order.class, o.getId());
+    	assertEquals(2, po.getOrderLines().size());
+        assertEquals(25, po.getOrderLines().get(0).getQuantity());
     }
 
     @Test
     public void orderCanCalculateTotalPrice() throws Exception {
-        // TODO: implement this test
-        Assert.fail("TODO");
+    	Order o = em.find(Order.class, 1000L);
+        assertEquals(447.18, o.calculateTotal(),0.01);
     }
 }
