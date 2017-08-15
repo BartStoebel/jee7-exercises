@@ -13,5 +13,7 @@ public class CandyShopProducers {
         return LoggerFactory.getLogger(ip.getMember().getDeclaringClass());
     }
 
-    // TODO Produce the EntityManager
+    
+    
+    
 }

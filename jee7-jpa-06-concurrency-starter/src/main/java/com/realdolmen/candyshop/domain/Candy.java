@@ -7,11 +7,13 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "candy_type")
 @NamedQuery(name = "find candy by name like", query = "select c from Candy c where c.name like :myName")
 // TODO: add an entity listener here
+@EntityListeners({TrackedEntityListener.class})
 public abstract class Candy extends Tracked {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    
     private String name;
 
     private double price;
@@ -20,6 +22,8 @@ public abstract class Candy extends Tracked {
     private CandyColor color;
 
     // TODO: add a version column
+    @Version
+    private int version;
 
     public Long getId() {
         return id;
@@ -48,4 +52,5 @@ public abstract class Candy extends Tracked {
     public void setPrice(double price) {
         this.price = price;
     }
+    
 }

@@ -7,9 +7,16 @@ import javax.persistence.PreUpdate;
 
 public class TrackedEntityListener {
     // TODO: add an entity listener method to update userCreated and userModified before saving. Use currentUser()
-
+	@PrePersist
+    private void insertUserCreated(Tracked tracked){
+    	tracked.setUserCreated(currentUser());
+    }
+	
     // TODO: add an entity listener method to update userModified before updating. Use currentUser()
-
+	@PreUpdate
+	private void insertUserUpdated(Tracked tracked){
+		tracked.setUserModified(currentUser());
+	}
     private String currentUser() {
         return UserUtils.currentUser();
     }

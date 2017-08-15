@@ -17,13 +17,13 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class CandyServiceTest {
     @InjectMocks
-    private CandyService candyService = new CandyService();
+    private CandyServiceBean candyService = new CandyServiceBean();
 
     @Mock
     private CandyRepository repository;
 
     @Mock
-    private PersonService personService;
+    private PersonServiceBean personService;
 
     @Test
     public void candyServiceHasCandyRepository() throws Exception {

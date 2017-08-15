@@ -11,10 +11,14 @@ import java.util.List;
 @Entity
 @NamedQuery(name = "find all people", query = "select p from Person p order by p.lastName, p.firstName")
 // TODO: add an entity listener here
+@EntityListeners({TrackedEntityListener.class})
+
 public class Person extends Tracked {
     @Id
     @GeneratedValue
     private Long id;
+    
+    
 
     @Column(nullable = false, length = 200)
     private String firstName;
@@ -30,6 +34,8 @@ public class Person extends Tracked {
     private long age;
 
     // TODO: add a version column
+    @Version
+    private int version;
 
     @Embedded
     private Address address;
@@ -44,7 +50,10 @@ public class Person extends Tracked {
     private List<Order> orderHistory = new ArrayList<>();
 
     // TODO: add a post load entity listener to calculate age from birthDate. Use DateUtils#yearsFrom()
-
+    @PostLoad
+    private void calculateAge(){
+    	
+    }
     public Long getId() {
         return id;
     }

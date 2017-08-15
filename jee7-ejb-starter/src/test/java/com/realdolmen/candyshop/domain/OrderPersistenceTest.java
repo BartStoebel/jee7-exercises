@@ -1,7 +1,9 @@
 package com.realdolmen.candyshop.domain;
 
-import com.realdolmen.candyshop.AbstractPersistenceTest;
+
 import org.junit.Test;
+
+import com.realdolmen.candyshop.AbstractPersistenceTest;
 
 import java.util.List;
 

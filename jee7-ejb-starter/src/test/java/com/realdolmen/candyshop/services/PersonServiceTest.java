@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class PersonServiceTest {
     @InjectMocks
-    private PersonService personService = new PersonService();
+    private PersonServiceBean personService = new PersonServiceBean();
 
     @Mock
     private PersonRepository repository;
