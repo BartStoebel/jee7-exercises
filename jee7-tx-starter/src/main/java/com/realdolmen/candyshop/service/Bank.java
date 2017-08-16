@@ -4,16 +4,23 @@ import com.realdolmen.candyshop.domain.Account;
 import com.realdolmen.candyshop.domain.Bug;
 import com.realdolmen.candyshop.repository.AccountRepository;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.PersistenceContext;
+
 import java.math.BigDecimal;
 import java.util.List;
 
 // TODO This should be a SLSB with remote access
+@Stateless
+@LocalBean
+@Remote
 public class Bank implements BankRemote {
     // TODO Retrieve the AccountRepository
+	@Inject
     private AccountRepository repository;
 
     @Override

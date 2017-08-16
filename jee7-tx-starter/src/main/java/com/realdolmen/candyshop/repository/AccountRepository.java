@@ -6,12 +6,16 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import java.util.List;
 
 // TODO This should be a SLSB...
+@Stateless
 public class AccountRepository {
 
     // TODO Retrieve the EntityManager
+	@Inject
     EntityManager em;
 
     public Account save(Account account) {

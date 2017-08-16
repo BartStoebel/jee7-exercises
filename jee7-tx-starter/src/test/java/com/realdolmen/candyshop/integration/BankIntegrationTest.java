@@ -21,6 +21,7 @@ public class BankIntegrationTest extends AbstractRemoteIntegrationTest {
     @BeforeClass
     public static void init() throws NamingException {
         // TODO Look up the BankRemote
+    	bank = lookup("jee7-tx-starter/Bank!com.realdolmen.candyshop.service.BankRemote");
     }
 
     @Test
